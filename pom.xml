@@ -4,7 +4,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.khesam</groupId>
   <artifactId>pizza-ordering-service</artifactId>
+  <packaging>pom</packaging>
   <version>1.0.0-SNAPSHOT</version>
+  <modules>
+    <module>pizzeria-service</module>
+    <module>customer-service</module>
+    <module>infrastructure</module>
+    <module>payment-service</module>
+    <module>order-service</module>
+    <module>common</module>
+  </modules>
 
   <properties>
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -17,15 +26,16 @@
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
   </properties>
 
+  <parent>
+    <groupId>io.quarkus.platform</groupId>
+    <artifactId>quarkus-bom</artifactId>
+    <version>2.14.1.Final</version>
+    <relativePath/>
+  </parent>
+
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>${quarkus.platform.artifact-id}</artifactId>
-        <version>${quarkus.platform.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
@@ -33,11 +43,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-container-image-docker</artifactId>
     </dependency>
 
     <dependency>
